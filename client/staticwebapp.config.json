@@ -1,0 +1,27 @@
+{
+    "trailingSlash": "auto",
+    "routes": [
+      {
+        "route": "/api/*",
+        "methods": ["GET"],
+        "allowedRoles": ["authenticated"]
+      },
+      {
+        "route": "/otherApiPath/*",
+        "redirect": "/api/"
+      },
+      {
+        "route": "/api/*",
+        "methods": ["PUT", "POST", "PATCH", "DELETE"],
+        "allowedRoles": ["contributor"]
+      },
+      {
+        "route": "/login",
+        "rewrite": "/.auth/login/github"
+      },
+      {
+        "route": "/logout",
+        "redirect": "/.auth/logout"
+      }
+    ]
+  }
